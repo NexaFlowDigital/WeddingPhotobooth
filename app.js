@@ -72,10 +72,12 @@
 
   // Make sure these file paths exist in your repo.
   const FRAMES = [
-  { name: "classic",    src: "assets/frames/classic.png" },
-  { name: "NexaFlow", src: "assets/frames/Frame1.png" },
-  { name: "Business",        src: "assets/frames/Frame2.png" },
-  { name: "Event",  src: "assets/frames/Frame3.png" },
+  { name: "Wedding 1",    src: "assets/frames/Custom_Wedding_1.png" },
+  { name: "Wedding 2", src: "assets/frames/Custom_Wedding_2.png" },
+  { name: "Wedding 3",        src: "assets/frames/Custom_Wedding_3.png" },
+  { name: "Wedding 4",  src: "assets/frames/Custom_Wedding_4.png" },
+  { name: "Wedding 5",        src: "assets/frames/Custom_Wedding_5.png" },
+  { name: "Wedding 6",        src: "assets/frames/Custom_Wedding_6.png" },
 ];
 
   // ---------- STATE ----------
