@@ -308,7 +308,7 @@
     ctx.fillStyle = "#0b0b10";
     ctx.fillRect(0, 0, c.width, c.height);
 
-    ctx.fillStyle = "#6b1020";
+    ctx.fillStyle = "#e98c8a";
     ctx.fillRect(0, 0, stripW, headerH);
     ctx.fillStyle = "#fff";
     ctx.font = "900 52px Arial";
