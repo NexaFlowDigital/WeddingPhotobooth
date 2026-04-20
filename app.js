@@ -312,9 +312,9 @@
     ctx.fillRect(0, 0, stripW, headerH);
     ctx.fillStyle = "#fff";
     ctx.font = "900 52px Arial";
-    ctx.fillText("YOUR", 28, 68);
+    ctx.fillText("Peri & Jared", 28, 68);
     ctx.font = "900 36px Arial";
-    ctx.fillText("BUSINESS NAME", 28, 108);
+    ctx.fillText("Wedding", 28, 108);
 
     let y = headerH;
     for (let i = 0; i < loaded.length; i++) {
@@ -326,7 +326,7 @@
     ctx.fillRect(0, c.height - footerH, stripW, footerH);
     ctx.fillStyle = "#fff";
     ctx.font = "900 34px Arial";
-    ctx.fillText("YOUR EVENT NAME 202X", 28, c.height - 92);
+    ctx.fillText("Peri & Jared", 28, c.height - 92);
 
     ctx.fillStyle = "rgba(255,255,255,0.75)";
     ctx.font = "700 22px Arial";
