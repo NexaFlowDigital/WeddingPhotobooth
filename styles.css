@@ -814,8 +814,9 @@ body:has(#screenCapture.show) .stage{
   }
 
   .stage{
-    padding:10px;
-  }
+  padding:10px;
+  overflow:auto;
+}
 
   .screen{
     align-items:stretch;
@@ -823,15 +824,16 @@ body:has(#screenCapture.show) .stage{
   }
 
   .screenCard{
-    width:100%;
-    height:calc(100vh - 64px - 20px);
-    max-height:calc(100vh - 64px - 20px);
-    display:flex;
-    flex-direction:column;
-    border-radius:18px;
-    padding:12px;
-    overflow:hidden;
-  }
+  width:100%;
+  min-height:calc(100vh - 64px - 20px);
+  height:auto;
+  max-height:none;
+  display:flex;
+  flex-direction:column;
+  border-radius:18px;
+  padding:12px 12px calc(16px + env(safe-area-inset-bottom));
+  overflow:visible;
+}
 
   .screenTitle{ font-size:20px; }
   .screenSub{ font-size:12px; }
@@ -886,10 +888,15 @@ body:has(#screenCapture.show) .stage{
   }
 
   .screenActions{
-    margin-top:auto;
-    padding-top:10px;
-    border-top:1px solid rgba(255,255,255,.08);
-  }
+  margin-top:auto;
+  padding-top:10px;
+  padding-bottom:calc(8px + env(safe-area-inset-bottom));
+  border-top:1px solid rgba(255,255,255,.08);
+  position:sticky;
+  bottom:0;
+  background: rgba(18,19,28,.96);
+  z-index:5;
+}
 
   .screenActions .btn{
     width:100%;
