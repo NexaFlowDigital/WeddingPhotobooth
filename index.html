@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>Nexaflow Digital Photobooth</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Desktop-only left rail (branding + quick help) -->
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topTitle">
+          <div class="topTitleMain">Photobooth</div>
+          <div id="topTitleSub" class="topTitleSub">Choose a mode</div>
+        </div>
+
+        <div class="statusChip">
+          <span id="chipDot" class="dot warn"></span>
+          <span id="chipText">Ready</span>
+        </div>
+      </header>
+
+      <section class="stage">
+        <!-- SCREEN: MODE -->
+        <section id="screenMode" class="screen show">
+          <div class="screenCard kioskModeCard">
+            <div id="kioskStartScreen" class="kioskStartScreen">
+              <div class="kioskFrameGlow"></div>
+
+              <div class="kioskCenter">
+                <div class="kioskBrand">Photobooth</div>
+                <button id="kioskStartBtn" class="kioskStartBtn" type="button">
+                  Press Here to Start
+                </button>
+                <div class="kioskHint">Tap to begin your photo booth experience</div>
+              </div>
+            </div>
+
+            <div class="screenHeader">
+              <div class="screenTitle">Choose capture mode</div>
+              <div class="screenSub">Pick what you want to create.</div>
+            </div>
+
+            <div class="modeGrid">
+              <button id="modePhotoBtn" class="modeTile" type="button">
+                <div class="modeName">Photo</div>
+                <div class="modeDesc">3-shot photo strip</div>
+              </button>
+
+              <button id="modeGifBtn" class="modeTile" type="button">
+                <div class="modeName">GIF</div>
+                <div class="modeDesc">Animated square</div>
+              </button>
+
+              <button id="modeBoomBtn" class="modeTile" type="button">
+                <div class="modeName">Boomerang</div>
+                <div class="modeDesc">Forward + reverse</div>
+              </button>
+            </div>
+
+            <div class="screenActions">
+              <button id="modeContinueBtn" class="btn primary" type="button" disabled>CONTINUE</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- SCREEN: TEMPLATE (Frames) -->
+        <section id="screenTemplate" class="screen">
+          <div class="screenCard">
+            <div class="screenHeader">
+              <div class="screenTitle">Choose a template</div>
+              <div class="screenSub">Tap a design to use during capture.</div>
+            </div>
+
+            <div id="frames" class="frameGrid"></div>
+
+            <div class="screenActions split">
+              <button id="templateBackBtn" class="btn secondary" type="button">BACK</button>
+              <button id="templateContinueBtn" class="btn primary" type="button">CONTINUE</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- SCREEN: INSTRUCTIONS -->
+        <section id="screenInstructions" class="screen">
+          <div class="screenCard">
+            <div class="screenHeader">
+              <div class="screenTitle">Instructions</div>
+              <div id="instructionsSub" class="screenSub">You’ll take 3 photos automatically.</div>
+            </div>
+
+            <div class="steps">
+              <div class="step"><div class="stepNum">1</div><div class="stepTxt">Allow camera access</div></div>
+              <div class="step"><div class="stepNum">2</div><div class="stepTxt">Center yourself in the frame</div></div>
+              <div class="step"><div class="stepNum">3</div><div class="stepTxt">Press START and hold still</div></div>
+            </div>
+
+            <div class="screenActions split">
+              <button id="instructionsBackBtn" class="btn secondary" type="button">BACK</button>
+              <button id="beginCaptureBtn" class="btn primary" type="button">START NOW</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- SCREEN: CAPTURE -->
+        <section id="screenCapture" class="screen">
+          <div class="boothShell">
+            <div class="booth">
+              <video id="video" playsinline autoplay muted></video>
+
+              <div class="overlay">
+                <img id="frameOverlay" alt="" />
+              </div>
+
+              <div id="prompt" class="prompt" aria-live="polite"></div>
+              <div id="flash" class="flash"></div>
+              <div id="countdown" class="countdown"></div>
+
+              <!-- RESULT MODAL -->
+              <div id="modal" class="modal">
+                <div class="modalCard">
+                  <div class="preview">
+                    <img id="stripPreview" alt="Result preview" />
+                    <video id="animPreview" playsinline muted loop controls></video>
+                  </div>
+
+                  <div class="panel">
+                    <div class="panelTitle" id="resultTitle">Your Result</div>
+                    <div class="panelSub" id="resultSub">Download it or email it to yourself.</div>
+
+                    <button id="downloadBtn" class="btn primary">DOWNLOAD</button>
+
+                    <div class="divider"></div>
+
+                    <label class="label">Email</label>
+                    <input id="emailInput" class="input" type="email" placeholder="you@example.com" />
+                    <button id="emailBtn" class="btn primary">EMAIL TO ME</button>
+
+                    <div class="tinyNote" id="emailNote">
+                      Tip: for social apps, download first and share from Photos.
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <button id="startOverBtn" class="btn secondary">START OVER</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <footer class="controls controlsDesktop">
+              <button id="startBtn" class="btn primary" disabled>START</button>
+              <button id="resetBtn" class="btn secondary" disabled>RESET</button>
+            </footer>
+          </div>
+        </section>
+      </section>
+
+      <!-- MOBILE BOTTOM BAR -->
+      <footer class="mobileBar">
+        <div class="mobileBarInner">
+          <div class="mobileBarLeft">
+            <div class="mobileTitle">Photobooth</div>
+            <div id="mobileSub" class="mobileSub">By NexaFlow Digital</div>
+          </div>
+          <div class="mobileBarRight">
+            <button id="startBtnMobile" class="btn primary" disabled>START</button>
+            <button id="resetBtnMobile" class="btn secondary" disabled>RESET</button>
+          </div>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+
+  <script>
+    (function () {
+      const kioskStartBtn = document.getElementById('kioskStartBtn');
+      const kioskStartScreen = document.getElementById('kioskStartScreen');
+
+      if (kioskStartBtn && kioskStartScreen) {
+        kioskStartBtn.addEventListener('click', function () {
+          kioskStartScreen.classList.add('hide');
+
+          setTimeout(function () {
+            kioskStartScreen.style.display = 'none';
+          }, 450);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
