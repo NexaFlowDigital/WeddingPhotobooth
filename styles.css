@@ -598,7 +598,8 @@ body:has(#screenCapture.show) .stage{
 .overlay img{
   width:100%;
   height:100%;
-  object-fit:cover;
+  object-fit:contain;
+  object-position:center;
   opacity:.98;
 }
 
@@ -1033,10 +1034,12 @@ body:has(#screenCapture.show) .stage{
   }
 
   .booth{
-    width:calc(100vw - 4px);
-    height:calc(100vh - 96px - env(safe-area-inset-bottom));
+    width:min(calc((100vh - 96px - env(safe-area-inset-bottom)) * 9 / 16), calc(100vw - 4px));
+    height:auto;
+    aspect-ratio:9 / 16;
+    max-height:calc(100vh - 96px - env(safe-area-inset-bottom));
     border-radius:18px;
-  }
+}
 
   .modal{
     padding:6px;
