@@ -564,8 +564,10 @@ body:has(#screenCapture.show) .stage{
 
 .booth{
   position:relative;
-  width:min(1360px, calc(100vw - 32px));
-  height:min(760px, calc(100vh - 88px));
+  width:min(calc((100vh - 88px) * 9 / 16), calc(100vw - 32px));
+  height:auto;
+  aspect-ratio:9 / 16;
+  max-height:calc(100vh - 88px);
   border-radius:24px;
   overflow:hidden;
   border:1px solid rgba(255,255,255,.10);
